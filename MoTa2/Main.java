@@ -22,6 +22,8 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        clearScreen cls = new clearScreen();
+        // cls.cls();
         mainMenu(listHero, atkHero);
     }
 
@@ -144,6 +146,8 @@ public class Main {
         } else{
             Character hero = listHero.get(0);
             Hero hrx = atkHero.get(0);
+            Scoring scoring = new Scoring();
+            System.out.println("Monster terkalahkan: " + scoring.getScore());
             System.out.println("ATK: " + hrx.getATK());
             String ANSI_RESET = "\u001B[0m";
             if(hero.getWarna() == 1){
@@ -214,10 +218,16 @@ public class Main {
                 String roleHero = "Assassin";
                 Character hr2 = new Character(namaHero, warnaHero, roleHero);
                 listHero.add(hr2);
+                int ATK = 30;
+                Hero hrx = new Hero(namaHero, warnaHero, roleHero, ATK);
+                atkHero.add(hrx);
             } else if(select == 3){
                 String roleHero = "Mage";
                 Character hr3 = new Character(namaHero, warnaHero, roleHero);
                 listHero.add(hr3);
+                int ATK = 30;
+                Hero hrx = new Hero(namaHero, warnaHero, roleHero, ATK);
+                atkHero.add(hrx);
             } else{
                 System.out.println("Pilihan tidak tersedia silahkan coba lagi!");
                 buatHero(listHero, atkHero); 
@@ -245,6 +255,7 @@ public class Main {
         BufferedReader br = new BufferedReader(isr);
 
         while(true){
+            Scoring scoring = new Scoring();
             System.out.println("[1] Mulai baru");
             System.out.println("[2] Lanjutkan game");
             System.out.println("[3] Lihat hero");

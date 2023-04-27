@@ -73,6 +73,9 @@ public class bermain {
                 defeat.scene();
                 break;
             } else if(hp_musuh <= 0){
+                Scoring scoring = new Scoring();
+                scoring.increment(1);
+                System.out.println("POINT +" + scoring.getScore());
                 Victory victory = new Victory();
                 victory.scene();
                 break;
